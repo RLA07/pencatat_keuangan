@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss -i ./src/assets/input.css -o ./dist/asstes/css/style.css --watch"
+    "build": "tailwindcss -i ./src/assets/input.css -o ./dist/assets/css/style.css --watch"
   },
   "author": "",
   "license": "ISC",
