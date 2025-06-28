@@ -12,8 +12,8 @@ require './src/includes/dashboard-proses.php';
     <?php require "./src/includes/favicon.php"; ?>
 </head>
 
-<body>
-    <div class="container mx-auto max-w-full px-10 pb-10 pt-4 md:px-10">
+<body class="w-[100vw] h-auto">
+    <div class="container mx-auto max-w-full px-4 pb-10 pt-4 md:px-10">
         <!-- Header -->
         <?php include "./src/includes/header.php"; ?>
 
@@ -58,19 +58,20 @@ require './src/includes/dashboard-proses.php';
                     Tambah Transaksi</a>
             </div>
             <div class="overflow-y-auto">
-                <table class="w-full text-left">
+                <table class=" text-left w-full">
                     <thead class="bg-slate-100 border-b border-slate-200 rounded-top-circle">
                         <tr>
-                            <th class="p-4 font-bold">Tanggal</th>
-                            <th class="p-4 font-bold">Kategori</th>
-                            <th class="p-4 font-bold">Deskripsi</th>
-                            <th class="text-right font-bold p-4">Jumlah</th>
+                            <th class="p-4 text-sm sm:text-md font-normal sm:font-bold">Tanggal</th>
+                            <th class="p-4 hidden sm:table-cell text-sm sm:text-md font-normal sm:font-bold">Kategori
+                            </th>
+                            <th class="p-4 text-sm sm:text-md font-normal sm:font-bold">Deskripsi</th>
+                            <th class="text-right text-sm sm:text-md font-normal sm:font-bold p-4">Jumlah</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php if (empty($transactions)): ?>
                         <tr class="border-b border-slate-200">
-                            <td colspan="4" class="p-4 text-center text-xl font-light text-slate-600">Belum ada
+                            <td colspan="4" class="p-4 text-center sm:text-xl font-light text-slate-600">Belum ada
                                 transaksi. Mulai tambahkan!
                             </td>
                         </tr>
@@ -80,7 +81,7 @@ require './src/includes/dashboard-proses.php';
                             <td class="p-4 text-slate-700">
                                 <?= htmlspecialchars(date('d M Y', strtotime($trans['transaction_date']))) ?>
                             </td>
-                            <td class="p-4 text-slate-700">
+                            <td class="p-4 hidden sm:table-cell text-slate-700">
                                 <?= htmlspecialchars($trans['category']) ?>
                             </td>
                             <td class="p-4 text-slate-700">

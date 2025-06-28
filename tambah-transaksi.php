@@ -1,6 +1,10 @@
 <?php 
 session_start();
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +18,9 @@ session_start();
 </head>
 
 <body class="bg-slate-200">
-    <div class="container px-6 sm:px-2 py-8 mx-auto">
+    <div class="container px-4 sm:px-6 py-4 sm:py-8 mx-auto">
         <div class="bg-white max-w-lg mx-auto px-5 py-6 rounded-lg shadow-lg ">
-            <h1 class="text-center text-3xl font-medium mb-8">Tambah Transaksi</h1>
+            <h1 class="text-center text-3xl font-semibold mb-8">Tambah Transaksi</h1>
 
             <?php
             if (isset($_SESSION['error_message'])):
@@ -31,17 +35,19 @@ session_start();
 
             <form id="transactionForm" action="./src/includes/tambah-transaksi-proses.php" method="post">
                 <!-- Tipe Transaksi -->
-                <div class="mb-4">
+                <div class="mb-4 w-full">
                     <label for="" class="block text-slate-800 font-medium mb-2">Tipe Transaksi</label>
-                    <div class="flex gap-4">
-                        <label for="" class="flex item-center p-4 border rounded-lg flex-1 cursor-pointer">
-                            <input type="radio" name="type" value="income"
+                    <div class="flex gap-4 sm:gap-4">
+                        <label for="type_income"
+                            class="flex items-center py-4 px-2  sm:px-4 border rounded-lg flex-1 cursor-pointer has-[:checked]:bg-blue-50 has-[:checked]:border-blue-500">
+                            <input type="radio" id="type_income" name="type" value="income"
                                 class="h-4 w-4 text-green-600 focus:ring-green-500" checked>
                             <span class="ml-3 text-slate-700">Pemasukan</span>
                         </label>
-                        <label for="" class="flex item-center p-4 border rounded-lg flex-1 cursor-pointer">
-                            <input type="radio" name="type" value="expense"
-                                class="h-4 w-4 text-red-600 focus:ring-red-500" checked>
+                        <label for="type_expense"
+                            class="flex items-center p-4 sm:p-4 border rounded-lg flex-1 cursor-pointer has-[:checked]:bg-blue-50 has-[:checked]:border-blue-500">
+                            <input type="radio" id="type_expense" name="type" value="expense"
+                                class="h-4 w-4 text-red-600 focus:ring-red-500">
                             <span class="ml-3 text-slate-700">Pengeluaran</span>
                         </label>
                     </div>
