@@ -1,13 +1,5 @@
 <?php
-session_start();
-
-// Jika pengguna belum login, tendang ke halaman login
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
-
-$user_id = $_SESSION['user_id'];
+require './src/includes/dashboard-proses.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,28 +7,39 @@ $user_id = $_SESSION['user_id'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="./dist/assets/css/style.css">
+    <?php require "./src/includes/favicon.php"; ?>
 </head>
 
 <body>
-    <div class="container mx-auto max-w-full p-10 md:p-10">
+    <div class="container mx-auto max-w-full px-10 pb-10 pt-4 md:px-10">
         <!-- Header -->
         <?php include "./src/includes/header.php"; ?>
+
+        <!-- Pesan Sukses (Jika Ada) -->
+        <?php if (isset($get_GET['status']) && $get_GET['status'] == 'success'): ?>
+        <div class="mb-4 p-4 bg-green-100 tex-green-700 rounded-lg">
+            Transaksi berhasil disimpan!
+        </div>
+        <?php endif; ?>
 
         <!-- Ringkasan Keuangan -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
             <div class="bg-white p-6 rounded-xl shadow-md">
                 <h2 class="text-slate-500 font-medium">Saldo Saat Ini</h2>
-                <p class="sm:text-2xl text-3xl font-bold text-blue-600">RP 5.000.000</p>
+                <p class="md:text-2xl text-xl font-bold text-blue-600">RP
+                    <?= number_format($current_balance, 0, ',', '.') ?></p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-md">
                 <h2 class="text-slate-500 font-medium">Pemasukan (Bulan Ini)</h2>
-                <p class="sm:text-2xl text-3xl font-bold text-blue-600">RP 5.000.000</p>
+                <p class="md:text-2xl text-xl font-bold text-green-600">+ RP
+                    <?= number_format($monthly_income, 0, ',', '.') ?></p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-md">
                 <h2 class="text-slate-500 font-medium">Pengeluaran (Bulan Ini)</h2>
-                <p class="sm:text-2xl text-3xl font-bold text-blue-600">RP 5.000.000</p>
+                <p class="md:text-2xl text-xl font-bold text-red-600">- RP
+                    <?= number_format($monthly_expense, 0, ',', '.') ?></p>
             </div>
         </div>
 
@@ -56,34 +59,46 @@ $user_id = $_SESSION['user_id'];
             </div>
             <div class="overflow-y-auto">
                 <table class="w-full text-left">
-                    <thead class="bg-slate-100 border-b border-slate-200">
+                    <thead class="bg-slate-100 border-b border-slate-200 rounded-top-circle">
                         <tr>
-                            <th class="p-4">Tanggal</th>
-                            <th class="p-4">Kategori</th>
-                            <th class="p-4">Deskripsi</th>
-                            <th class="text-right p-4">Jumlah</th>
+                            <th class="p-4 font-bold">Tanggal</th>
+                            <th class="p-4 font-bold">Kategori</th>
+                            <th class="p-4 font-bold">Deskripsi</th>
+                            <th class="text-right font-bold p-4">Jumlah</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php if (empty($transactions)): ?>
                         <tr class="border-b border-slate-200">
-                            <td class="p-4">25 Jun 2025</td>
-                            <td class="p-4">Gaji</td>
-                            <td class="p-4">Gaji Bulanan</td>
-                            <td class="text-right p-4">+ RP 15.000.000</td>
+                            <td colspan="4" class="p-4 text-center text-xl font-light text-slate-600">Belum ada
+                                transaksi. Mulai tambahkan!
+                            </td>
                         </tr>
+                        <?php else: ?>
+                        <?php foreach ($transactions as $trans): ?>
                         <tr class="border-b border-slate-200">
-                            <td class="p-4">25 Jun 2025</td>
-                            <td class="p-4">Gaji</td>
-                            <td class="p-4">Gaji Bulanan</td>
-                            <td class="text-right p-4">+ RP 15.000.000</td>
+                            <td class="p-4 text-slate-700">
+                                <?= htmlspecialchars(date('d M Y', strtotime($trans['transaction_date']))) ?>
+                            </td>
+                            <td class="p-4 text-slate-700">
+                                <?= htmlspecialchars($trans['category']) ?>
+                            </td>
+                            <td class="p-4 text-slate-700">
+                                <?= htmlspecialchars($trans['description']) ?>
+                            </td>
+                            <td
+                                class="text-right p-4 font-bold text-md lg:text-xl <?php echo ($trans['type'] == 'income')? 'text-green-600' : 'text-red-600';?> ">
+                                <?php echo ($trans['type'] == 'income')? '+ ' : '- '; ?>
+                                Rp <?= number_format($trans['amount'], 0, ',', '.') ?>
+                            </td>
                         </tr>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
-
 </body>
 
 </html>

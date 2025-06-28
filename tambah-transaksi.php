@@ -10,6 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./dist/assets/css/style.css">
+    <?php require "./src/includes/favicon.php"; ?>
 </head>
 
 <body class="bg-slate-200">

@@ -14,6 +14,7 @@ if (isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Akun - Pencatat Keuangan</title>
     <link href="./dist/assets/css/style.css" rel="stylesheet">
+    <?php require "./src/includes/favicon.php"; ?>
 </head>
 
 <body class="bg-slate-100">
