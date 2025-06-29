@@ -1,10 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
 <div align="center">
 
-# **Nawala**
+<!-- <img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/src/assets/logos/Logo2.png" width="250" alt="Ikon Keuangan Bergerak"> -->
 
-_💸 Your Personal Finance Compass 💸_
+<img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/src/assets/logos/Logo-Fit-Transparant.png" width="180" alt="Ikon Keuangan Bergerak">
 
-Sebuah aplikasi web sederhana namun kuat untuk melacak setiap pemasukan dan pengeluaran Anda. Dibuat untuk membantu Anda memahami ke mana perginya uang Anda dan mencapai tujuan keuangan.
+Sebuah aplikasi web modern untuk melacak setiap pemasukan dan pengeluaran dengan mudah. Dibangun dengan praktik terbaik untuk membantu Anda memahami alur kas dan mencapai tujuan finansial. Proyek ini adalah studi kasus dalam membangun aplikasi PHP prosedural yang rapi, aman, dan mudah dipelihara.
 
 </div>
 
@@ -12,47 +21,51 @@ Sebuah aplikasi web sederhana namun kuat untuk melacak setiap pemasukan dan peng
 
 ## ✨ Fitur Utama
 
-- [x] **Otentikasi Pengguna Aman:** Sistem registrasi & login lengkap dengan _hashing_ password.
-- [x] **Dashboard Interaktif:** Ringkasan visual saldo, pemasukan, dan pengeluaran.
-- [x] **Manajemen Transaksi (CRUD):**
-  - `[✓]` Tambah dan lihat transaksi.
-  - `[🚧]` Edit dan hapus transaksi (dalam pengembangan).
-- [x] **Riwayat Transaksi:** Semua catatan keuangan Anda tersimpan rapi dan terurut.
-- [x] **Desain Responsif:** Tampilan modern dan nyaman diakses dari desktop maupun mobile.
+- [x] **Otentikasi Pengguna Aman:** Sistem registrasi & login lengkap dengan _hashing_ password menggunakan `password_hash()`.
+- [x] **Dashboard Interaktif:** Ringkasan visual saldo, pemasukan, dan pengeluaran yang dihitung secara _real-time_.
+- [x] **Manajemen Transaksi CRUD:**
+  - `[✓]` **Create:** Menambah data transaksi baru.
+  - `[✓]` **Read:** Menampilkan riwayat transaksi.
+  - `[🚧]` **Update:** (Dalam tahap pengembangan).
+  - `[✓]` **Delete:** Menghapus transaksi dengan aman.
+- [x] **Desain Responsif & Modern:** Dibangun dengan Tailwind CSS, nyaman diakses dari desktop maupun mobile.
+- [x] **Pengalaman Pengguna (UX) yang Ditingkatkan:** Fitur seperti _Kebab Menu_ di mobile dan _Tooltip_ deskripsi untuk menjaga antarmuka tetap bersih.
 
 ---
 
-## 🚀 Teknologi yang Digunakan
+## 🚀 Tumpukan Teknologi (Tech Stack)
 
 <div align="center">
-    <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
-    <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
-    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+    <img src="https://img.shields.io/badge/CSS-663399?style=for-the-badge&logo=CSS&logoColor=white" alt="CSS">
     <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+    <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+    <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+
 </div>
 
 ---
 
 ## 🛠️ Panduan Instalasi & Setup
 
-Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer lokal Anda.
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal Anda.
 
 ### **1. Prasyarat**
 
 Pastikan Anda sudah menginstal perangkat lunak berikut:
 
-- [XAMPP](https://www.apachefriends.org/index.html) (dengan `PHP 7.4+` direkomendasikan)
-- [Node.js & NPM](https://nodejs.org/en/) (v16 ke atas direkomendasikan)
+- [XAMPP](https://www.apachefriends.org/index.html) (atau server lokal lain seperti WAMP, MAMP)
+- [Node.js & NPM](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
 
 ### **2. Langkah-langkah Setup**
 
 1.  **Clone Repositori**
+    Pindahkan ke direktori `htdocs` XAMPP Anda, lalu jalankan:
 
     ```bash
-    git clone [https://github.com/RLA07/pencatat_keuangan.git](https://github.com/RLA07/pencatat_keuangan.git)
-    cd pencatat_keuangan
+    git clone https://github.com/RLA07/pencatat_keuangan.git
+    cd nama_folder_proyek
     ```
 
 2.  **Setup Database**
@@ -61,30 +74,20 @@ Pastikan Anda sudah menginstal perangkat lunak berikut:
     - Buka browser dan navigasikan ke `http://localhost/phpmyadmin`.
     - Buat database baru dengan nama `db_keuangan`.
     - Pilih database `db_keuangan`, lalu buka tab **"Import"**.
-    - Pilih file `db_keuangan.sql` di dalam folder `database` dan klik "Go".
+    - Pilih file `db_keuangan.sql` dari dalam folder `database` proyek dan klik "Go".
 
-3.  **Konfigurasi Koneksi Database**
+3.  **Konfigurasi Aplikasi (Langkah Penting)**
 
-    - Navigasikan ke folder `src/includes/`.
-    - Buka dan sesuaikan file `db_connection.php` dengan konfigurasi database Anda:
+    - Buka file `config.php` yang ada di folder utama proyek.
+    - Sesuaikan nilai variabel `$servername`, `$username`, `$password`, dan `$database` dengan konfigurasi database anda.
 
       ```php
-      <?php
-      $servername = "localhost";
+      // Contoh di dalam config.php
+      $servername = "127.0.0.1";
       $username = "root";
       $password = "";
       $database = "db_keuangan";
-
-      $conn = new mysqli($servername, $username, $password, $database);
-
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-      // echo "Connected successfully!"; // Baris ini untuk pengujian
-      ?>
       ```
-
-      > _**Catatan:** Setelah memastikan koneksi berhasil, disarankan untuk memberi komentar (`//`) atau menghapus baris `echo "Connected successfully!";` agar tidak mengganggu output halaman._
 
 4.  **Install Dependensi & Build CSS**
 
@@ -99,38 +102,87 @@ Pastikan Anda sudah menginstal perangkat lunak berikut:
       ```
 
 5.  **Jalankan Proyek**
-    - Pastikan folder proyek `pencatat_keuangan` berada di dalam direktori `htdocs` XAMPP Anda.
-    - Buka browser dan navigasikan ke:
+    - Buka browser dan navigasikan ke URL yang sudah dikonfigurasi. Biasanya dimulai dengan:
       ```
-      http://localhost/pencatat_keuangan/register.php
+      http://localhost/NAMA_FOLDER_PROYEK_ANDA/
       ```
 
 ---
 
-## 📁 Struktur Proyek
+## 갤러리 Tampilan Aplikasi
 
-Struktur folder dirancang agar rapi dan mudah dikelola, memisahkan antara kode sumber dan hasil kompilasi.
+<details>
+<summary>Klik untuk melihat screenshot</summary>
+<br>
+<table>
+<!-- Untuk tampilan > sm -->
+  <tr class="hidden sm:table-row">
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-login.png" alt="Halaman Login"></td>
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-dashboard.png" alt="Dashboard Desktop"></td>
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-tambah-transaksi.png" alt="Form Tambah Transaksi"></td>
+  </tr>
+<!-- Untuk tampilan <= sm -->
+  <tr class="sm:hidden">
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-login.png" alt="Halaman Login"></td>
+  </tr>
+  <tr class="sm:hidden">
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-dashboard.png" alt="Dashboard Desktop"></td>
+  </tr>
+  <tr class="sm:hidden">
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-tambah-transaksi.png" alt="Form Tambah Transaksi"></td>
+  </tr>
+  
+  <!-- Untuk tampilan > sm -->
+  <tr class="hidden sm:table-row">
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-login.png" alt="Halaman Login"></td>
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-dashboard.png" alt="Dashboard Desktop"></td>
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-tambah-transaksi.png" alt="Form Tambah Transaksi"></td>
+  </tr>
+<!-- Untuk tampilan <= sm -->
+  <tr class="sm:hidden">
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-login.png" alt="Halaman Login"></td>
+  </tr>
+  <tr class="sm:hidden">
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-dashboard.png" alt="Dashboard Desktop"></td>
+  </tr>
+  <tr class="sm:hidden">
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-tambah-transaksi.png" alt="Form Tambah Transaksi"></td>
+  </tr>
+</table>
+</details>
+
+---
+
+## 📁 Struktur Proyek (Versi Terbaru)
+
+Struktur folder ini dirancang untuk kerapian dan kemudahan pengelolaan, memisahkan file berdasarkan fungsi dan teknologinya.
 
 ```
 .
-├── database/         # Berisi file dump .sql untuk setup awal
-│   └── db_keuangan.sql
-├── dist/             # Folder output hasil kompilasi (JANGAN DIEDIT LANGSUNG)
+├── config.php          # File konfigurasi utama (BASE_URL, Koneksi DB)
+├── database/           # Berisi file dump .sql
+├── dist/               # Folder output hasil kompilasi (untuk browser)
 │   └── assets/
-│       ├── css/      # Berisi style.css yang digenerate
-│       ├── fonts/    # Berisi file font
-│       └── logos/    # Berisi file logo
-├── src/              # Folder kerja utama (Di sini Anda menulis kode)
-│   ├── assets/
-│   │   ├── fonts/    # Sumber file font
-│   │   └── logos/    # Sumber file logo
-│   └── includes/     # Skrip PHP reusable (koneksi DB, header, dll)
-├── *.php             # File-file halaman utama (login, dashboard, dll)
-├── .gitignore        # Daftar file/folder yang diabaikan oleh Git
-├── package.json      # Konfigurasi proyek Node.js & daftar dependensi
-└── tailwind.config.js# Konfigurasi Tailwind CSS
+│       ├── css/
+│       ├── fonts/
+│       └── logos/
+├── src/                # Folder kerja utama (tempat Anda menulis kode)
+│   ├── assets/         # Aset sumber (CSS kustom, gambar asli)
+│   │   ├── css/
+│   │   ├── fonts/
+│   │   └── logos/
+│   └── includes/
+│       ├── js/         # File JavaScript untuk interaktivitas
+│       └── php/        # File-file prosesor PHP (backend logic)
+├── *.php               # File-file halaman utama (tampilan/view)
+├── .gitignore
+├── package.json
+└── tailwind.config.js
 ```
 
 <div align="center">
 Dibuat dengan begadang dan secangkir semangat ☕
 </div>
+
+</body>
+</html>

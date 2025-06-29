@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-require 'src/includes/db_connection.php';
+require_once dirname(__DIR__, 3) . '/config.php';
 $user_id = $_SESSION['user_id'];
 
 // Logika Menghitung Ringkasan Keuangan

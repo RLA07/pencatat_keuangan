@@ -1,6 +1,8 @@
 <?php 
 session_start();
 
+require_once __DIR__ . '/config.php';
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
@@ -14,7 +16,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./dist/assets/css/style.css">
-    <?php require "./src/includes/favicon.php"; ?>
+    <?php require_once ROOT_PATH . "/src/includes/php/favicon.php"; ?>
 </head>
 
 <body class="bg-slate-200">
@@ -33,7 +35,7 @@ if (!isset($_SESSION['user_id'])) {
             endif;
             ?>
 
-            <form id="transactionForm" action="./src/includes/tambah-transaksi-proses.php" method="post">
+            <form id="transactionForm" action="./src/includes/php/tambah-transaksi-proses.php" method="post">
                 <!-- Tipe Transaksi -->
                 <div class="mb-4 w-full">
                     <label for="" class="block text-slate-800 font-medium mb-2">Tipe Transaksi</label>
@@ -90,7 +92,7 @@ if (!isset($_SESSION['user_id'])) {
 
                 <!-- Tombol aksi -->
                 <div class="flex gap-4">
-                    <a href="dashboard.php"
+                    <a href="./dashboard.php"
                         class="text-center w-full bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded">
                         Batal
                     </a>
@@ -98,7 +100,6 @@ if (!isset($_SESSION['user_id'])) {
                         class="text-center w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Simpan
                     </button>
-
                 </div>
             </form>
         </div>

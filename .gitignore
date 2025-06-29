@@ -11,7 +11,7 @@
 # 3. File Konfigurasi & Rahasia (Config & Secret Files)
 # Jangan pernah unggah file yang berisi password database, API key, atau info sensitif lainnya.
 # Kita akan membuat file ini untuk koneksi database.
-config.php
+# config.php
 # Standar untuk menyimpan environment variables.
 .env
 

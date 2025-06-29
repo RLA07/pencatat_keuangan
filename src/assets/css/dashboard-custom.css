@@ -31,3 +31,9 @@ body {
   border-style: solid;
   border-color: #1e293b transparent transparent transparent; /* Warna sama dengan background tooltip */
 }
+
+.dropdown-top {
+  bottom: 100%; /* Posisi di atas elemen induk */
+  top: auto; /* Hapus batasan 'top' jika ada */
+  margin-bottom: 0.5rem; /* Beri sedikit jarak dari tombol */
+}

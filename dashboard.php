@@ -1,5 +1,6 @@
 <?php
-require './src/includes/dashboard-proses.php';
+require_once __DIR__ . '/config.php';
+require_once ROOT_PATH . '/src/includes/php/dashboard-proses.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,13 +10,13 @@ require './src/includes/dashboard-proses.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./dist/assets/css/style.css">
-    <?php require "./src/includes/favicon.php"; ?>
+    <?php require_once ROOT_PATH . "/src/includes/php/favicon.php"; ?>
 </head>
 
-<body class="w-[100vw] h-auto">
+<body class="w-full h-auto">
     <div class="container mx-auto max-w-full px-4 pb-10 pt-4 md:px-10">
         <!-- Header -->
-        <?php include "./src/includes/header.php"; ?>
+        <?php require_once ROOT_PATH . "/src/includes/php/header.php"; ?>
 
         <!-- Pesan Sukses (Jika Ada) -->
         <?php if (isset($get_GET['status']) && $get_GET['status'] == 'success'): ?>
@@ -31,12 +32,24 @@ require './src/includes/dashboard-proses.php';
                 <p class="md:text-2xl text-xl font-bold text-blue-600">RP
                     <?= number_format($current_balance, 0, ',', '.') ?></p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-md">
+            <div class="sm:hidden flex flex-1 justify-between items-center p-0 gap-4">
+                <div class="bg-white p-6 rounded-xl shadow-md w-full h-full">
+                    <h2 class="text-slate-500 font-medium">Pemasukan (Bulan Ini)</h2>
+                    <p class="md:text-2xl text-xl font-bold text-green-600">+ RP
+                        <?= number_format($monthly_income, 0, ',', '.') ?></p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md w-full h-full">
+                    <h2 class="text-slate-500 font-medium">Pengeluaran (Bulan Ini)</h2>
+                    <p class="md:text-2xl text-xl font-bold text-red-600">- RP
+                        <?= number_format($monthly_expense, 0, ',', '.') ?></p>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md hidden sm:block">
                 <h2 class="text-slate-500 font-medium">Pemasukan (Bulan Ini)</h2>
                 <p class="md:text-2xl text-xl font-bold text-green-600">+ RP
                     <?= number_format($monthly_income, 0, ',', '.') ?></p>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-md">
+            <div class="bg-white p-6 rounded-xl shadow-md hidden sm:block">
                 <h2 class="text-slate-500 font-medium">Pengeluaran (Bulan Ini)</h2>
                 <p class="md:text-2xl text-xl font-bold text-red-600">- RP
                     <?= number_format($monthly_expense, 0, ',', '.') ?></p>
@@ -47,7 +60,7 @@ require './src/includes/dashboard-proses.php';
         <div>
             <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold text-slate-800 mb-4 md:mb-0">Riwayat Transaksi</h2>
-                <a href="tambah-transaksi.php"
+                <a href="<?= BASE_URL ?>/tambah-transaksi.php"
                     class="w-full sm:w-auto bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
                         fill="currentColor">
@@ -57,8 +70,8 @@ require './src/includes/dashboard-proses.php';
                     </svg>
                     Tambah Transaksi</a>
             </div>
-            <div class="overflow-y-auto">
-                <table class=" text-left w-full">
+            <div class="overflow-y-full bg-green-50">
+                <table class=" text-left w-full shadow-lg rounded-lg bg-slate-50">
                     <thead class="bg-slate-100 border-b border-slate-200 rounded-top-circle">
                         <tr>
                             <th class="p-4 text-sm sm:text-md font-normal sm:font-bold">Tanggal</th>
@@ -67,13 +80,13 @@ require './src/includes/dashboard-proses.php';
                             <th class="p-4 hidden sm:table-cell text-sm sm:text-md font-normal sm:font-bold">Deskripsi
                             </th>
                             <th class="text-right text-sm sm:text-md font-normal sm:font-bold p-4">Jumlah</th>
-                            <th class="text-Center text-sm sm:text-md font-normal sm:font-bold p-4">Aksi</th>
+                            <th class="text-center text-sm sm:text-md font-normal sm:font-bold p-4">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php if (empty($transactions)): ?>
                         <tr class="border-b border-slate-200">
-                            <td colspan="4" class="p-4 text-center sm:text-xl font-light text-slate-600">Belum ada
+                            <td colspan="5" class="p-4 text-center sm:text-xl font-light text-slate-600">Belum ada
                                 transaksi. Mulai tambahkan!
                             </td>
                         </tr>
@@ -83,7 +96,7 @@ require './src/includes/dashboard-proses.php';
                             <td class="p-4 text-slate-700 text-sm sm:text-md">
                                 <?= htmlspecialchars(date('d M Y', strtotime($trans['transaction_date']))) ?>
                             </td>
-                            <td class="p-4 hidden sm:table-cell text-slate-700 text-sm sm:text-md">
+                            <td class="p-4 sm:table-cell text-slate-700 text-sm sm:text-md">
                                 <div class="relative inline-block">
                                     <span class="tooltip-trigger" data-tooltip-id="<?= $trans['id'] ?>">
                                         <?= htmlspecialchars($trans['category']) ?>
@@ -116,11 +129,11 @@ require './src/includes/dashboard-proses.php';
                                     <div id="dropdown-<?= $trans['id'] ?>"
                                         class="action-dropdown origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
                                         <div class="py-1">
-                                            <a href="edit-transaksi.php?id=<?= $trans['id'] ?>"
+                                            <a href="<?= BASE_URL ?>/edit-transaksi.php?id=<?= $trans['id'] ?>"
                                                 class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">
                                                 Edit
                                             </a>
-                                            <a href="./src/includes/delete-transaksi-proses.php?id=<?= $trans['id'] ?>"
+                                            <a href="<?= BASE_URL ?>/src/includes/php/delete-transaksi-proses.php?id=<?= $trans['id'] ?>"
                                                 onclick="return confirm('Apakah Anda yakin ingin menghapus transaksi ini?')"
                                                 class="block px-4 py-2 text-sm text-red-600 hover:bg-slate-100">
                                                 Hapus
@@ -138,7 +151,7 @@ require './src/includes/dashboard-proses.php';
         </div>
     </div>
 
-    <script src="./src/js/dashboard-proses.js"></script>
+    <script src="./src/includes/js/dashboard-proses.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once __DIR__ . '/config.php';
+
 // Jika pengguna sudah login, alihkan ke dashboard
 if (isset($_SESSION['user_id'])) {
     header("Location: dashboard.php");
@@ -14,7 +16,7 @@ if (isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Akun - Pencatat Keuangan</title>
     <link href="./dist/assets/css/style.css" rel="stylesheet">
-    <?php require "./src/includes/favicon.php"; ?>
+    <?php require_once  ROOT_PATH . "/src/includes/php/favicon.php"; ?>
 </head>
 
 <body class="bg-slate-100">
@@ -33,7 +35,7 @@ if (isset($_SESSION['user_id'])) {
             <?php unset($_SESSION['error_message']); ?>
             <?php endif; ?>
 
-            <form action="src/includes/register-proses.php" method="POST">
+            <form action="src/includes/php/register-proses.php" method="POST">
                 <div class="mb-4">
                     <label for="username" class="block text-slate-700 font-medium mb-2">Username</label>
                     <input type="text" id="username" name="username" required

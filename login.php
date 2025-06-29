@@ -1,9 +1,11 @@
 <?php
 session_start();
+
+require_once __DIR__ . '/config.php';
 // Jika pengguna sudah login, alihkan ke dashboard
 if (isset($_SESSION['user_id'])) {
-    header("Location: dashboard.php");
-    exit();
+    header("Location: " . BASE_URL . "/dashboard.php");
+exit();
 }
 ?>
 <!DOCTYPE html>
@@ -13,8 +15,8 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Pencatat Keuangan</title>
-    <link href="./dist/assets/css/style.css" rel="stylesheet">
-    <?php require "./src/includes/favicon.php"; ?>
+    <link href="<?= BASE_URL ?>/dist/assets/css/style.css" rel="stylesheet">
+    <?php require_once ROOT_PATH . "/src/includes/php/favicon.php"; ?>
 </head>
 
 <body class="bg-slate-100">
@@ -36,7 +38,7 @@ if (isset($_SESSION['user_id'])) {
             <?php unset($_SESSION['success_message']); ?>
             <?php endif; ?>
 
-            <form action="src/includes/login-proses.php" method="POST">
+            <form action="<?= BASE_URL ?>/src/includes/php/login-proses.php" method="POST">
                 <div class="mb-4">
                     <label for="email" class="block text-slate-700 font-medium mb-2">Alamat Email</label>
                     <input type="email" id="email" name="email" required
@@ -52,7 +54,8 @@ if (isset($_SESSION['user_id'])) {
                     Masuk
                 </button>
                 <p class="text-center text-sm text-slate-500 mt-6">
-                    Belum punya akun? <a href="register.php" class="font-medium text-blue-600 hover:underline">Daftar di
+                    Belum punya akun? <a href="<?= BASE_URL ?>/register.php"
+                        class="font-medium text-blue-600 hover:underline">Daftar di
                         sini</a>
                 </p>
             </form>
