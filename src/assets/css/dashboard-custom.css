@@ -1,0 +1,33 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+/* PERUBAHAN: Menambahkan style untuk tooltip */
+.action-dropdown,
+.tooltip-popup {
+  display: none;
+}
+.tooltip-trigger {
+  cursor: pointer;
+  border-bottom: 1px dotted #64748b; /* Abu-abu, untuk menandakan bisa diklik */
+}
+.tooltip-popup {
+  position: absolute;
+  bottom: 100%; /* Muncul di atas elemen */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px; /* Jarak dari teks */
+  width: max-content; /* Lebar sesuai konten */
+  max-width: 250px; /* Batas lebar maksimal */
+  z-index: 20;
+}
+/* Style untuk panah kecil di bawah tooltip */
+.tooltip-popup::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #1e293b transparent transparent transparent; /* Warna sama dengan background tooltip */
+}

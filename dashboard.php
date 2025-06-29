@@ -62,10 +62,12 @@ require './src/includes/dashboard-proses.php';
                     <thead class="bg-slate-100 border-b border-slate-200 rounded-top-circle">
                         <tr>
                             <th class="p-4 text-sm sm:text-md font-normal sm:font-bold">Tanggal</th>
-                            <th class="p-4 hidden sm:table-cell text-sm sm:text-md font-normal sm:font-bold">Kategori
+                            <th class="p-4 text-sm sm:text-md font-normal sm:font-bold">Kategori
                             </th>
-                            <th class="p-4 text-sm sm:text-md font-normal sm:font-bold">Deskripsi</th>
+                            <th class="p-4 hidden sm:table-cell text-sm sm:text-md font-normal sm:font-bold">Deskripsi
+                            </th>
                             <th class="text-right text-sm sm:text-md font-normal sm:font-bold p-4">Jumlah</th>
+                            <th class="text-Center text-sm sm:text-md font-normal sm:font-bold p-4">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,19 +80,54 @@ require './src/includes/dashboard-proses.php';
                         <?php else: ?>
                         <?php foreach ($transactions as $trans): ?>
                         <tr class="border-b border-slate-200">
-                            <td class="p-4 text-slate-700">
+                            <td class="p-4 text-slate-700 text-sm sm:text-md">
                                 <?= htmlspecialchars(date('d M Y', strtotime($trans['transaction_date']))) ?>
                             </td>
-                            <td class="p-4 hidden sm:table-cell text-slate-700">
-                                <?= htmlspecialchars($trans['category']) ?>
+                            <td class="p-4 hidden sm:table-cell text-slate-700 text-sm sm:text-md">
+                                <div class="relative inline-block">
+                                    <span class="tooltip-trigger" data-tooltip-id="<?= $trans['id'] ?>">
+                                        <?= htmlspecialchars($trans['category']) ?>
+                                    </span>
+                                    <div id="tooltip-<?= $trans['id'] ?>"
+                                        class="tooltip-popup p-2 text-xs text-white bg-slate-800 rounded-md shadow-lg">
+                                        <?= htmlspecialchars($trans['description']) ?>
+                                    </div>
+                                </div>
+
                             </td>
-                            <td class="p-4 text-slate-700">
+                            <td class="p-4 text-slate-700 text-sm sm:text-md hidden sm:table-cell">
                                 <?= htmlspecialchars($trans['description']) ?>
                             </td>
                             <td
-                                class="text-right p-4 font-bold text-md lg:text-xl <?php echo ($trans['type'] == 'income')? 'text-green-600' : 'text-red-600';?> ">
+                                class="text-right p-4 font-bold text-sm sm:text-md lg:text-xl <?php echo ($trans['type'] == 'income')? 'text-green-600' : 'text-red-600';?> ">
                                 <?php echo ($trans['type'] == 'income')? '+ ' : '- '; ?>
                                 Rp <?= number_format($trans['amount'], 0, ',', '.') ?>
+                            </td>
+                            <td class="p-4 text-slate-700 text-center text-sm sm:text-md">
+                                <div class="relative inline-block text-left">
+                                    <button type="button" class="kebab-button p-2 rounded-full hover bg-slate-200"
+                                        data-id="<?= $trans['id'] ?>">
+                                        <svg class="w-5 h-5 text-slate-500" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path
+                                                d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+                                        </svg>
+                                    </button>
+                                    <div id="dropdown-<?= $trans['id'] ?>"
+                                        class="action-dropdown origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
+                                        <div class="py-1">
+                                            <a href="edit-transaksi.php?id=<?= $trans['id'] ?>"
+                                                class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">
+                                                Edit
+                                            </a>
+                                            <a href="./src/includes/delete-transaksi-proses.php?id=<?= $trans['id'] ?>"
+                                                onclick="return confirm('Apakah Anda yakin ingin menghapus transaksi ini?')"
+                                                class="block px-4 py-2 text-sm text-red-600 hover:bg-slate-100">
+                                                Hapus
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -100,6 +137,8 @@ require './src/includes/dashboard-proses.php';
             </div>
         </div>
     </div>
+
+    <script src="./src/js/dashboard-proses.js"></script>
 </body>
 
 </html>

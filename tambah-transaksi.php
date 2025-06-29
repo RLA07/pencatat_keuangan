@@ -103,7 +103,6 @@ if (!isset($_SESSION['user_id'])) {
             </form>
         </div>
     </div>
-    <script src="./src/includes/tambah-transaksi-proses.js"></script>
 </body>
 
 </html>
