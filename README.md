@@ -24,7 +24,7 @@ Sebuah aplikasi web modern untuk melacak setiap pemasukan dan pengeluaran dengan
 
 ---
 
-## 🚀 Tumpukan Teknologi (Tech Stack)
+## 🚀 Teknologi Yang Dipakai
 
 <div align="center">
     <img src="https://img.shields.io/badge/CSS-663399?style=for-the-badge&logo=CSS&logoColor=white" alt="CSS">
@@ -100,7 +100,7 @@ Pastikan Anda sudah menginstal perangkat lunak berikut:
 
 ---
 
-## 갤러리 Tampilan Aplikasi
+## 🖼️ Tampilan Aplikasi
 
 <details>
 <summary>Klik untuk melihat screenshot</summary>
@@ -129,7 +129,7 @@ Pastikan Anda sudah menginstal perangkat lunak berikut:
 
 ---
 
-## 📁 Struktur Proyek (Versi Terbaru)
+## 📁 Struktur Proyek
 
 Struktur folder ini dirancang untuk kerapian dan kemudahan pengelolaan, memisahkan file berdasarkan fungsi dan teknologinya.
 
