@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>README</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<body>
 <div align="center">
 
 <!-- <img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/src/assets/logos/Logo2.png" width="250" alt="Ikon Keuangan Bergerak"> -->
 
-<img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/src/assets/logos/Logo-Fit-Transparant.png" width="180" alt="Ikon Keuangan Bergerak">
+<img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/src/assets/logos/Logo-Fit.png" width="180" alt="Ikon Keuangan Bergerak">
 
 Sebuah aplikasi web modern untuk melacak setiap pemasukan dan pengeluaran dengan mudah. Dibangun dengan praktik terbaik untuk membantu Anda memahami alur kas dan mencapai tujuan finansial. Proyek ini adalah studi kasus dalam membangun aplikasi PHP prosedural yang rapi, aman, dan mudah dipelihara.
 
@@ -115,38 +106,23 @@ Pastikan Anda sudah menginstal perangkat lunak berikut:
 <summary>Klik untuk melihat screenshot</summary>
 <br>
 <table>
-<!-- Untuk tampilan > sm -->
-  <tr class="hidden sm:table-row">
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-login.png" alt="Halaman Login"></td>
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-dashboard.png" alt="Dashboard Desktop"></td>
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-tambah-transaksi.png" alt="Form Tambah Transaksi"></td>
+  <tr >
+    <td><center><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-login.png" width="80%" alt="Halaman Login"></center></td>
   </tr>
-<!-- Untuk tampilan <= sm -->
-  <tr class="sm:hidden">
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-login.png" alt="Halaman Login"></td>
+  <tr >
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-dashboard.png" width="80%" alt="Dashboard Desktop"></td>
   </tr>
-  <tr class="sm:hidden">
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-dashboard.png" alt="Dashboard Desktop"></td>
+  <tr >
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-tambah-transaksi.png" width="80%" alt="Form Tambah Transaksi"></td>
   </tr>
-  <tr class="sm:hidden">
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-tambah-transaksi.png" alt="Form Tambah Transaksi"></td>
+  <tr >
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-login.jpg" width="50%" alt="Halaman Login"></td>
   </tr>
-  
-  <!-- Untuk tampilan > sm -->
-  <tr class="hidden sm:table-row">
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-login.png" alt="Halaman Login"></td>
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-dashboard.png" alt="Dashboard Desktop"></td>
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-tambah-transaksi.png" alt="Form Tambah Transaksi"></td>
+  <tr >
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-dashboard.jpg"width="50%" alt="Dashboard Desktop"></td>
   </tr>
-<!-- Untuk tampilan <= sm -->
-  <tr class="sm:hidden">
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-login.png" alt="Halaman Login"></td>
-  </tr>
-  <tr class="sm:hidden">
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-dashboard.png" alt="Dashboard Desktop"></td>
-  </tr>
-  <tr class="sm:hidden">
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-tambah-transaksi.png" alt="Form Tambah Transaksi"></td>
+  <tr >
+    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-tambah-transaksi.jpg" width="50%" alt="Form Tambah Transaksi"></td>
   </tr>
 </table>
 </details>
@@ -183,6 +159,3 @@ Struktur folder ini dirancang untuk kerapian dan kemudahan pengelolaan, memisahk
 <div align="center">
 Dibuat dengan begadang dan secangkir semangat ☕
 </div>
-
-</body>
-</html>
