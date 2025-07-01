@@ -30,29 +30,29 @@ require_once ROOT_PATH . '/src/includes/php/dashboard-proses.php';
             <div class="bg-white p-6 rounded-xl shadow-md">
                 <h2 class="text-slate-500 font-medium">Saldo Saat Ini</h2>
                 <p class="md:text-2xl text-xl font-bold text-blue-600">RP
-                    <?= number_format($current_balance, 0, ',', '.') ?></p>
+                    <?= htmlspecialchars(number_format($current_balance, 0, ',', '.')) ?></p>
             </div>
             <div class="sm:hidden flex flex-1 justify-between items-center p-0 gap-4">
                 <div class="bg-white p-6 rounded-xl shadow-md w-full h-full">
                     <h2 class="text-slate-500 font-medium">Pemasukan (Bulan Ini)</h2>
                     <p class="md:text-2xl text-xl font-bold text-green-600">+ RP
-                        <?= number_format($monthly_income, 0, ',', '.') ?></p>
+                        <?= htmlspecialchars(number_format($monthly_income, 0, ',', '.')) ?></p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md w-full h-full">
                     <h2 class="text-slate-500 font-medium">Pengeluaran (Bulan Ini)</h2>
                     <p class="md:text-2xl text-xl font-bold text-red-600">- RP
-                        <?= number_format($monthly_expense, 0, ',', '.') ?></p>
+                        <?= htmlspecialchars(number_format($monthly_expense, 0, ',', '.')) ?></p>
                 </div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-md hidden sm:block">
                 <h2 class="text-slate-500 font-medium">Pemasukan (Bulan Ini)</h2>
                 <p class="md:text-2xl text-xl font-bold text-green-600">+ RP
-                    <?= number_format($monthly_income, 0, ',', '.') ?></p>
+                    <?= htmlspecialchars(number_format($monthly_income, 0, ',', '.')) ?></p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-md hidden sm:block">
                 <h2 class="text-slate-500 font-medium">Pengeluaran (Bulan Ini)</h2>
                 <p class="md:text-2xl text-xl font-bold text-red-600">- RP
-                    <?= number_format($monthly_expense, 0, ',', '.') ?></p>
+                    <?= htmlspecialchars(number_format($monthly_expense, 0, ',', '.')) ?></p>
             </div>
         </div>
 
@@ -114,7 +114,7 @@ require_once ROOT_PATH . '/src/includes/php/dashboard-proses.php';
                             <td
                                 class="text-right p-4 font-bold text-sm sm:text-md lg:text-xl <?php echo ($trans['type'] == 'income')? 'text-green-600' : 'text-red-600';?> ">
                                 <?php echo ($trans['type'] == 'income')? '+ ' : '- '; ?>
-                                Rp <?= number_format($trans['amount'], 0, ',', '.') ?>
+                                Rp <?= htmlspecialchars(number_format($trans['amount'], 0, ',', '.')) ?>
                             </td>
                             <td class="p-4 text-slate-700 text-center text-sm sm:text-md">
                                 <div class="relative inline-block text-left">

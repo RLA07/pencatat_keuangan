@@ -4,6 +4,7 @@ session_start();
 require_once dirname(__DIR__, 3) . '/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    session_regenerate_id(true); 
     $email = $_POST['email'];
     $password = $_POST['password'];
 

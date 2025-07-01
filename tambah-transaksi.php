@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_id'])) {
             if (isset($_SESSION['error_message'])):
             ?>
             <div class="mb-4 p-4 bg-red-100 text-red-700 rounded-lg">
-                <?= $_SESSION['error_message']; ?>
+                <?= htmlspecialchars($_SESSION['error_message']); ?>
             </div>
             <?php 
             unset($_SESSION['error_message']);
