@@ -17,7 +17,7 @@ Sebuah aplikasi web modern untuk melacak setiap pemasukan dan pengeluaran dengan
 - [x] **Manajemen Transaksi CRUD:**
   - `[✓]` **Create:** Menambah data transaksi baru.
   - `[✓]` **Read:** Menampilkan riwayat transaksi.
-  - `[🚧]` **Update:** (Dalam tahap pengembangan).
+  - `[✓]` **Update:** Mengubah data transaksi yang sudah ada.
   - `[✓]` **Delete:** Menghapus transaksi dengan aman.
 - [x] **Desain Responsif & Modern:** Dibangun dengan Tailwind CSS, nyaman diakses dari desktop maupun mobile.
 - [x] **Pengalaman Pengguna (UX) yang Ditingkatkan:** Fitur seperti _Kebab Menu_ di mobile dan _Tooltip_ deskripsi untuk menjaga antarmuka tetap bersih.
@@ -110,19 +110,19 @@ Pastikan Anda sudah menginstal perangkat lunak berikut:
     <td><center><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-login.png" width="80%" alt="Halaman Login"></center></td>
   </tr>
   <tr >
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-dashboard.png" width="80%" alt="Dashboard Desktop"></td>
+    <td><center><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-dashboard.png" width="80%" alt="Dashboard Desktop"></center></td>
   </tr>
   <tr >
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-tambah-transaksi.png" width="80%" alt="Form Tambah Transaksi"></td>
+    <td><center><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/desktop-tambah-transaksi.png" width="80%" alt="Form Tambah Transaksi"></center></td>
   </tr>
   <tr >
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-login.jpg" width="50%" alt="Halaman Login"></td>
+    <td><center><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-login.jpg" width="50%" alt="Halaman Login"></center></td>
   </tr>
   <tr >
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-dashboard.jpg"width="50%" alt="Dashboard Desktop"></td>
+    <td><center><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-dashboard.jpg"width="50%" alt="Dashboard Desktop"></center></td>
   </tr>
   <tr >
-    <td><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-tambah-transaksi.jpg" width="50%" alt="Form Tambah Transaksi"></td>
+    <td><center><img src="https://raw.githubusercontent.com/RLA07/pencatat_keuangan/main/screenshot/mobile-tambah-transaksi.jpg" width="50%" alt="Form Tambah Transaksi"></center></td>
   </tr>
 </table>
 </details>
@@ -150,7 +150,13 @@ Struktur folder ini dirancang untuk kerapian dan kemudahan pengelolaan, memisahk
 │   └── includes/
 │       ├── js/         # File JavaScript untuk interaktivitas
 │       └── php/        # File-file prosesor PHP (backend logic)
-├── *.php               # File-file halaman utama (tampilan/view)
+├── dashboard.php       # Halaman utama setelah login, menampilkan ringkasan dan riwayat transaksi
+├── edit-transaksi.php  # Halaman untuk mengedit transaksi
+├── index.php           # Redirect ke halaman dashboard jika sudah login, atau login jika belum
+├── login.php           # Halaman login pengguna
+├── logout.php          # Proses logout pengguna
+├── register.php        # Halaman registrasi pengguna baru
+├── tambah-transaksi.php # Halaman untuk menambah transaksi baru
 ├── .gitignore
 ├── package.json
 └── tailwind.config.js

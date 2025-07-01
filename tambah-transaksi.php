@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tambah Transaksi - Nawala</title>
     <link rel="stylesheet" href="./dist/assets/css/style.css">
     <?php require_once ROOT_PATH . "/src/includes/php/favicon.php"; ?>
 </head>
@@ -47,7 +47,7 @@ if (!isset($_SESSION['user_id'])) {
                             <span class="ml-3 text-slate-700">Pemasukan</span>
                         </label>
                         <label for="type_expense"
-                            class="flex items-center p-4 sm:p-4 border rounded-lg flex-1 cursor-pointer has-[:checked]:bg-blue-50 has-[:checked]:border-blue-500">
+                            class="flex items-center py-4 px-2  sm:px-4 border rounded-lg flex-1 cursor-pointer has-[:checked]:bg-blue-50 has-[:checked]:border-blue-500">
                             <input type="radio" id="type_expense" name="type" value="expense"
                                 class="h-4 w-4 text-red-600 focus:ring-red-500">
                             <span class="ml-3 text-slate-700">Pengeluaran</span>

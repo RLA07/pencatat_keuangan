@@ -8,7 +8,7 @@ require_once ROOT_PATH . '/src/includes/php/dashboard-proses.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dashboard - Nawala</title>
     <link rel="stylesheet" href="./dist/assets/css/style.css">
     <?php require_once ROOT_PATH . "/src/includes/php/favicon.php"; ?>
 </head>
@@ -71,7 +71,7 @@ require_once ROOT_PATH . '/src/includes/php/dashboard-proses.php';
                     Tambah Transaksi</a>
             </div>
             <div class="overflow-y-full bg-green-50">
-                <table class=" text-left w-full shadow-lg rounded-lg bg-slate-50">
+                <table class="text-left w-full shadow-lg rounded-sm bg-slate-50">
                     <thead class="bg-slate-100 border-b border-slate-200 rounded-top-circle">
                         <tr>
                             <th class="p-4 text-sm sm:text-md font-normal sm:font-bold">Tanggal</th>

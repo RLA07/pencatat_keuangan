@@ -14,7 +14,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Akun - Pencatat Keuangan</title>
+    <title>Daftar - Nawala</title>
     <link href="./dist/assets/css/style.css" rel="stylesheet">
     <?php require_once  ROOT_PATH . "/src/includes/php/favicon.php"; ?>
 </head>

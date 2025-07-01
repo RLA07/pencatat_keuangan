@@ -14,7 +14,7 @@ exit();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Pencatat Keuangan</title>
+    <title>Masuk - Nawala</title>
     <link href="<?= BASE_URL ?>/dist/assets/css/style.css" rel="stylesheet">
     <?php require_once ROOT_PATH . "/src/includes/php/favicon.php"; ?>
 </head>
